@@ -1,0 +1,124 @@
+
+//Specifies the font and background color for page
+body {
+  font-family: 'Oswald', sans-serif;
+  color: #1a1a1a;
+  background-image: url('../images/White_Background_01.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+//Style for content area between the header and footer
+#row1 {
+  min-height: 350px;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-flow: row;
+}
+
+#profile-section {
+  display: flex;
+  flex-flow: row;
+}
+
+#profile-content {
+  align-self: center;
+  padding: 10px;
+}
+
+#row2 {
+  min-height: 350px;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-flow: row;
+}
+
+#row2 > section {
+  margin: 15px;
+  padding: 10px;
+  border: 1px solid #cccc33;
+  border-radius: 7pt;
+  background: rgba(0, 255, 0, 0.3);
+  flex-grow: 1; //specifies how much an item is allowed to expand relative to the rest of the flex items.
+  flex-shrink: 1; //specifies how much the flex item will shrink relative to the rest of the flex items.
+  flex-basis: 30%; // initial main size of item
+  order: 1; //display this second in middle row
+  box-shadow: 10px 10px 5px #888888;
+}
+
+
+/*Style for main portion of content*/
+#row1 > article {
+  margin:15px;
+  padding: 10px;
+  border: 1px solid #cccc33;
+  border-radius: 7pt;
+  background: rgba(0, 0, 255, 0.3); //blue
+  flex-grow: 3;
+  flex-shrink: 1;
+  flex-basis: 35%;
+  order: 2;
+  box-shadow: 10px 10px 5px #888888;
+}
+
+/*Style for right column*/
+#row1 > aside {
+  margin: 15px;
+  padding: 10px;
+  border: 1px solid #eebb55;
+  border-radius: 7pt;
+  background: rgba(0, 255, 0, 0.3); //green
+  flex-grow: 1;
+  flex-shrink: 6;
+  flex-basis: 20%;
+  order: 3; //display this third in middle row
+  box-shadow: 10px 10px 5px #888888;
+}
+
+/*Style for header and footer*/
+header, footer {
+  display: block;
+  margin: 15px;
+  padding-right: 20px;
+  min-height: 40px;
+  border: 1px solid #eebb55;
+  background:rgba(255, 0, 0, 0.3); //green
+  box-shadow: 10px 10px 5px #888888;
+  text-align: right;
+}
+
+/*layout for smaller screens less than 700px*/
+@media all and (max-width: 700px) {
+
+  #row1, #row2, #page {
+    flex-direction: column;
+    min-height: 200px;
+  }
+
+  /* reset layout to html document order */
+  #row1 > article, #row1 > aside, #row2 > section {
+    order: 0;
+    min-width: 0;
+  }
+
+  #row1 > aside, #row2>section, header, footer {
+    min-height: 20px;
+  }
+
+  #profile-section {
+    flex-direction: column;
+  }
+}
+
+/*For screen sizes below 200px put the profile pic ontop of the profile description*/
+@media all and (max-width: 200px) {
+  #profile-section {
+    flex-direction: column;
+  }
+}
+
+.img-circle {
+  border-radius: 5%;
+}
